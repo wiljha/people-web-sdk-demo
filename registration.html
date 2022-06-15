@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<title>Magic Shop. Sign Up</title>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+  <meta content="utf-8" http-equiv="encoding" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="text/javascript" src="utils.js"></script>
+  
+   <!-- GTM Datalayer init -->
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  </script>
+  
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W8VSX4T');</script>
+<!-- End Google Tag Manager -->
+  
+</head>
+
+<body>
+  
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8VSX4T"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
+  <header class="header">
+    <div class="fake-counter"></div>
+    <h1>Magic shop</h1>
+    <div class="counter" id="counter"></div>
+  </header>
+  <article class="register-content" id="registration">
+    <div class="field-container">
+      <div class="field">First name:</div>
+      <input class="input" id="firstName" />
+    </div>
+    <div class="field-container">
+      <div class="field">Last name:</div>
+      <input class="input" id="lastName" />
+    </div>
+    <div class="field-container">
+      <div class="field">Email:</div>
+      <input class="input" id="email" />
+    </div>
+    <div class="field-container">
+      <div class="field">Phone:</div>
+      <input class="input" id="phone" />
+    </div>
+    <button class="button-register" onclick="register()" type="button">Sign Up</button>
+  </article>
+  <script>
+    async function register() {
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+
+      const person = {
+        firstName,
+        lastName,
+        email,
+        phone,
+      };
+
+      saveUser(person);
+      
+      window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'event': 'signup'});
+      console.log('User Signed Up');
+      
+      setTimeout(() => { window.location = './' }, 3000);
+    }
+
+  </script>
+</body>
+
+</html>
