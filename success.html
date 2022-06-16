@@ -67,7 +67,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       window.dataLayer.push({'user_id': '','event': 'logout'});
       console.log('User Logged Out');
       removeUser();
-      window.location = './';
+     
+      setTimeout(() => window.location = './', 3000); 
     }
 
     function backToShopping() {
