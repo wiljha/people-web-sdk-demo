@@ -95,6 +95,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
       const total = document.querySelector('.total');
       total.innerText = `$${cart.totalPrice}`;
+      window.dataLayer.push({'total': cart.totalPrice});
     })()
 
     async function pay() {
@@ -102,7 +103,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     
     async function cancel_order() {
-      window.dataLayer.push({'total': cart.totalPrice, 'event': 'cancel_order'});
+      window.dataLayer.push({'event': 'cancel_order'});
       console.log('Cart dropped');
       removeCart();
       setTimeout(() => window.location = './', 3000); 
