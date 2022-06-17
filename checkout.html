@@ -64,6 +64,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           Pay
         </button>
       </div>
+      </div>
+        <button class="checkout-button-pay" type="button" onclick="cancel_order()">
+          Pay
+        </button>
+      </div>
   </article>
   <script>
     (async () => {
@@ -95,8 +100,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })()
 
     async function pay() {
-      // await pe.track('CompletedPurchase', { revenue: 100 });
       setTimeout(() => window.location = './success.html', 3000); 
+    }
+    
+    async function cancel_order() {
+      window.dataLayer.push({'total': cart.totalPrice, 'event': 'cancel_order'});
+      console.log('Cart dropped');
+      removeCart();
+      setTimeout(() => window.location = './', 3000); 
     }
   </script>
 </body>
