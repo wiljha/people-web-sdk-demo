@@ -93,6 +93,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       addItemToCart(itemName, price);
       updateCartView('cart');
 
+      console.log('Item Added to Cart');
+      
       const user = getUser();
       if (user && user.email) {
           window.dataLayer.push({'product_name': itemName, 'product_price': price, 'qty': 1, 'event': 'add_to_cart'});
