@@ -73,6 +73,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'event': 'signup'});
       console.log('User Signed Up');
       
+      localStorage.setItem('person', JSON.stringify(person));
+                pe.setPerson({email:email});
+                //pe.track('registration');
+                pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});
+      
       setTimeout(() => { window.location = './' }, 3000);
     }
 
