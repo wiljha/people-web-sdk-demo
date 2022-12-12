@@ -69,16 +69,18 @@
         phone,
       };
       
+      
+
+      saveUser(person);
+      
+      window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'event': 'signup'});
+      console.log('User Signed Up');
+      
       localStorage.setItem('person', JSON.stringify(person));
        pe.setPerson({email:email});
        pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});
-
-      //saveUser(person);
       
-      //window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'event': 'signup'});
-      //console.log('User Signed Up');
-      
-      setTimeout(() => {window.location = './index.html'}, 3000);
+      setTimeout(() => {window.location = './'}, 3000);
     }
 
   </script>
