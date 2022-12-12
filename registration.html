@@ -8,11 +8,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script type="text/javascript" src="utils.js"></script>
   
-   <!-- GTM Datalayer init -->
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  </script>
-  
+
 <!-- Google Tag Manager -->
   <script>
             (function(e,t,n,o){e.PeopleEventsObject=o;e[o]=e[o]||{init:function(t){e[o].apiKey=t},
@@ -60,11 +56,11 @@
     <button class="button-register" onclick="register()" type="button">Sign Up</button>
   </article>
   <script>
-    async function register() {
-      const firstName = document.getElementById('firstName').value;
-      const lastName = document.getElementById('lastName').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
+    function register() {
+        const firstName = document.getElementById('firstName').value;
+        const lasttName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
 
       const person = {
         firstName,
@@ -77,10 +73,10 @@
        pe.setPerson({email:email});
        pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});
 
-      saveUser(person);
+      //saveUser(person);
       
-      window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'event': 'signup'});
-      console.log('User Signed Up');
+      //window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'event': 'signup'});
+      //console.log('User Signed Up');
       
       setTimeout(() => { window.location = './' }, 3000);
     }
