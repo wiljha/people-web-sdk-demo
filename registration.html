@@ -55,17 +55,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="button-register" onclick="register()" type="button">Sign Up</button>
   </article>
   <script>
-    const onRegistrationFormSubmit = async (evt) => {
-    evt.preventDefault();
-    /* ... */
-    await pe.setPerson({ email: 'someone@email.com' }); // profile identifier from the registration form
-    await pe.track('registration'); // your custom event
-    await pe.updatePerson({ firstName: 'First name', lastName: 'Last name' }); // person attributes from the form
-};
- 
-const registrationForm = document.querySelector('form');
-registrationForm.addEventListener('submit', onRegistrationFormSubmit);
+    async function register() {
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+
+      const person = {
+        firstName,
+        lastName,
+        email,
+        phone,
+      };
+
+      saveUser(person);
       
+      window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'event': 'signup'});
+      console.log('User Signed Up');
       
       setTimeout(() => { window.location = './' }, 3000);
     }
