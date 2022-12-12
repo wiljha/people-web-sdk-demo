@@ -56,9 +56,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       console.log('User Logged In');
       
       setTimeout(() => { window.location = './' }, 3000);
+      
+      
+      const onLoginFormSubmit = async (evt) => {
+    evt.preventDefault();
+    /* ... */
+    await pe.setPerson({ email: 'email' }); // profile identifier from the login form
+    await pe.track('loginRetail'); // your custom event
+};
+ 
+const loginForm = document.querySelector('form');
+loginForm.addEventListener('submit', onLoginFormSubmit);
+      
     }
+    
 
   </script>
+  
 </body>
 
 </html>
