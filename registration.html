@@ -69,14 +69,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       };
 
                 saveUser(person);
-                localStorage.setItem('person', JSON.stringify(person));
-                pe.setPerson({email:email});
+                
       
       window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'event': 'signup'});
       console.log('User Signed Up');
       
       
-               
+               localStorage.setItem('person', JSON.stringify(person));
+                pe.setPerson({email:email});
                 pe.track('registration');
                 pe.updatePerson({ firstName: firstName, lastName: lastName, email: email, contactInformation:{phone:[{number: phone}]}});
       
