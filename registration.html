@@ -61,19 +61,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const email = document.getElementById('email').value;
       const phone = document.getElementById('phone').value;
      
-    
-               
+    const onRegistrationFormSubmit = async (evt) => {
+    evt.preventDefault();
+    /* ... */
+        await pe.setPerson({email:email});
+        await pe.track('registration');
+        await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});
+};
+ 
                 
 
       const person = {
         firstName,
         lastName,
         email,
-        phone;
+        phone,
         
-               await pe.setPerson({email:email});
-                await pe.track('registration');
-                await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});  
+               //await pe.setPerson({email:email});
+                //await pe.track('registration');
+                //await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});  
       };
      
              
@@ -82,7 +88,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'event': 'signup'});
       console.log('User Signed Up');
      
-      localStorage.setItem('person', JSON.stringify(person));
+      //localStorage.setItem('person', JSON.stringify(person));
                               
       
       setTimeout(() => { window.location = './' }, 3000);
