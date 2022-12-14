@@ -107,7 +107,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     async function logout() {
       window.dataLayer.push({'user_id': '','event': 'logout'});
       console.log('User Logged Out');
-      await pe.forgetPerson();
+       await pe.track('logout'); // your custom event
+       await pe.forgetPerson();
       removeUser();
       
       setTimeout(() => window.location = './', 3000)
