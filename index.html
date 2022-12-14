@@ -98,16 +98,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (user && user.email) {
           window.dataLayer.push({'product_name': itemName, 'product_price': price, 'qty': 1, 'event': 'add_to_cart'});
           console.log('Item Added to Cart');
-          pe.track('addtocart', { item: itemName, price: price, quantity: 1 });
+          await pe.track('addtocart', { item: itemName, price: price, quantity: 1 });
       } else {
-           pe.track('demoViewItem', { itemCategory: 'test', itemPrice: price, itemName });
+          await pe.track('demoViewItem', { itemCategory: 'test', itemPrice: price, itemName });
       }
     }
 
     async function logout() {
       window.dataLayer.push({'user_id': '','event': 'logout'});
       console.log('User Logged Out');
-      pe.forgetPerson();
+      await pe.forgetPerson();
       removeUser();
       
       setTimeout(() => window.location = './', 3000)
