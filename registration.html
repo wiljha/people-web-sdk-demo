@@ -62,7 +62,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const phone = document.getElementById('phone').value;
      
       
-     
+                await pe.setPerson({email:email});
+                await pe.track('registration');
+                await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});
                 
 
       const person = {
@@ -81,11 +83,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       console.log('User Signed Up');
      
       localStorage.setItem('person', JSON.stringify(person));
-                 await pe.setPerson({email:email});
-                await pe.track('registration');
-                await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});
-
-                 
+                              
       
       setTimeout(() => { window.location = './' }, 3000);
     }
