@@ -60,6 +60,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const lastName = document.getElementById('lastName').value;
       const email = document.getElementById('email').value;
       const phone = document.getElementById('phone').value;
+     
+      localStorage.setItem('person', JSON.stringify(person));
+     
+                await pe.setPerson({email:email});
+                await pe.track('registration');
+                await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});
+
 
       const person = {
         firstName,
@@ -70,19 +77,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 
       };
      
-                await pe.setPerson({email:email});
-                await pe.track('registration');
-                await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});
-
-                saveUser(person);
                 
-      
+      saveUser(person);                  
       window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'event': 'signup'});
       console.log('User Signed Up');
-      
-      
-      localStorage.setItem('person', JSON.stringify(person));
-                
+                 
       
       setTimeout(() => { window.location = './' }, 3000);
     }
