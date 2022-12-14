@@ -61,19 +61,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const email = document.getElementById('email').value;
       const phone = document.getElementById('phone').value;
      
-      
-                await pe.setPerson({email:email});
-                await pe.track('registration');
-                await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});
+    
+               
                 
 
       const person = {
         firstName,
         lastName,
         email,
-        phone,
+        phone;
         
-                
+               await pe.setPerson({email:email});
+                await pe.track('registration');
+                await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});  
       };
      
              
