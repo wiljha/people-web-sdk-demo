@@ -54,44 +54,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <button class="button-register" onclick="register()" type="button">Sign Up</button>
   </article>
-  <script>
-   async function register() {
+  
+   <script>
+    async function register() {
       const firstName = document.getElementById('firstName').value;
       const lastName = document.getElementById('lastName').value;
       const email = document.getElementById('email').value;
       const phone = document.getElementById('phone').value;
-     
-   
- 
-                
 
       const person = {
         firstName,
         lastName,
         email,
         phone,
-        
-               
       };
-     
-      //localStorage.setItem('person', JSON.stringify(person));
-     
-      //await pe.setPerson({email:email});
-      //await pe.track('registration');
-      //await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});       
-                
-      saveUser(person);                  
+
+      saveUser(person);
+      
       window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'event': 'signup'});
       console.log('User Signed Up');
-     
-    
-     
-      
       
       setTimeout(() => { window.location = './' }, 3000);
     }
 
   </script>
+  
 </body>
 
 </html>
