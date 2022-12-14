@@ -66,14 +66,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 
 
       const person = {
-        firstName,
-        lastName,
-        email,
-        phone,
+        //firstName,
+        //lastName,
+        //email,
+        //phone,
         
-               //await pe.setPerson({email:email});
-                //await pe.track('registration');
-                //await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});  
+               await pe.setPerson({email:email});
+               await pe.track('registration');
+               await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});  
       };
      
              
@@ -84,14 +84,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      
       localStorage.setItem('person', JSON.stringify(person));
      
-      const onRegistrationFormSubmit = async (evt) => {
-    evt.preventDefault();
-    /* ... */
-        await pe.setPerson({email:email});
-        await pe.track('registration');
-        await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});
-};
-                              
+      
       
       setTimeout(() => { window.location = './' }, 3000);
     }
