@@ -65,12 +65,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         firstName,
         lastName,
         email,
-        phone;
+        phone,
         
+                
+      };
+     
                 await pe.setPerson({email:email});
                 await pe.track('registration');
                 await pe.updatePerson({ firstName: firstName, lastName: lastName, contactInformation:{phone:[{number: phone}]}});
-      };
 
                 saveUser(person);
                 
@@ -79,7 +81,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       console.log('User Signed Up');
       
       
-               localStorage.setItem('person', JSON.stringify(person));
+      localStorage.setItem('person', JSON.stringify(person));
                 
       
       setTimeout(() => { window.location = './' }, 3000);
