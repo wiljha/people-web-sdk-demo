@@ -16,21 +16,20 @@
   
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MJKZ658');</script>
-<!-- End Google Tag Manager -->
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MJKZ658');</script>
+  <!-- End Google Tag Manager -->
   
 </head>
 
 <body>
   
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJKZ658"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
+ <!-- Google Tag Manager (noscript) -->
+ <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJKZ658"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   
   <header class="header">
     <nav>
@@ -98,17 +97,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (user && user.email) {
           window.dataLayer.push({'product_name': itemName, 'product_price': price, 'qty': 1, 'event': 'add_to_cart'});
           console.log('Item Added to Cart');
-          await pe.track('add_tcart', { item: itemName, price: price, quantity: 1 });
+        // await pe.track('addtocart', { item: itemName, price: price, quantity: 1 });
       } else {
-          await pe.track('demoViewItem', { itemCategory: 'test', itemPrice: price, itemName: itemName });
+        // await pe.track('demoViewItem', { itemCategory: 'test', itemPrice: price, itemName });
       }
     }
 
     async function logout() {
       window.dataLayer.push({'user_id': '','event': 'logout'});
       console.log('User Logged Out');
-       await pe.track('logout'); // your custom event
-       await pe.forgetPerson();
       removeUser();
       
       setTimeout(() => window.location = './', 3000)
