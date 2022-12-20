@@ -70,7 +70,7 @@
 
       saveUser(person);
       
-      window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'contactInformation':{'phone':[{'number': phone}]}, 'event': 'signup'});
+      window.dataLayer.push({'user_id': email, 'last_name':lastName, 'first_name':firstName, 'contactInformation':{'phone':[{'number': phone}]}, 'event': 'registration'});
       console.log('User Signed Up');
       
       setTimeout(() => { window.location = './' }, 3000);
