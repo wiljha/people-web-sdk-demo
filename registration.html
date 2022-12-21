@@ -55,6 +55,8 @@
     <button class="button-register" onclick="register()" type="button">Sign Up</button>
   </article>
   <script>
+    
+  const user = getUser();    
     async function register() {
       const firstName = document.getElementById('firstName').value;
       const lastName = document.getElementById('lastName').value;
